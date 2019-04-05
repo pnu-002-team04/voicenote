@@ -9,6 +9,9 @@ import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
 	@Override
+	
+	
+	
 	public void start(Stage primaryStage) {
 		try {
 			Parent root = (Parent)FXMLLoader.load(getClass().getResource("Sample.fxml"));
@@ -16,6 +19,11 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			
+		    
+		        primaryStage.setTitle("VoiceNote");
+		        primaryStage.setScene(scene);
+		        primaryStage.show();
 		} catch(Exception e) {
 		}
 	}
