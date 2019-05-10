@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-
-
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <children>
@@ -15,11 +13,7 @@
             <DropShadow />
          </effect>
          <children>
-            <Pane fx:id="step1" layoutY="-4.0" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #23CE6B;">
-               <children>
-                  <JFXButton layoutX="170.0" layoutY="180.0" text="Upload File" />
-               </children></Pane>
-            <Pane fx:id="step2"  layoutY="-4.0" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #272D2D;">
+            <Pane fx:id="step2" layoutY="-4.0" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #272D2D;">
                <children>
                   <JFXButton layoutX="150.0" layoutY="180.0" text="Get Optimization" textFill="WHITE" />
                </children>
@@ -32,6 +26,12 @@
             <Pane fx:id="step4" layoutY="-4.0" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #F6F8FF;">
                <children>
                   <JFXButton layoutX="170.0" layoutY="180.0" text="Save as.." />
+                  <Pane fx:id="step1" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #23CE6B;">
+                     <children>
+                        <JFXButton layoutX="283.0" layoutY="193.0" text="upload file" />
+                        <JFXTextField fx:id="filePath" layoutX="63.0" layoutY="193.0" prefHeight="23.0" prefWidth="208.0" />
+                     </children>
+                  </Pane>
                </children>
             </Pane>
          </children>

@@ -15,6 +15,7 @@ public class runPython implements Runnable {
 		this.pyPath = pyPath;
 		this.pyCommand = "python " + this.pyPath; // fix current directory
 	}
+	
 	public runPython(String pyPath, String args) {
 		this.pyPath = pyPath;
 		this.pyCommand = "python " + this.pyPath + " " + args; 
