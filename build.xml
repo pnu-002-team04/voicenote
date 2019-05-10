@@ -3,20 +3,29 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="voicenote">
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="voicenote-79fb6444d369864b8a109bdbdc2606ce4cffbae1">
     <property environment="env"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.8"/>
     <property name="source" value="1.8"/>
     <path id="Maven Dependencies.libraryclasspath">
-        <pathelement location="../../.m2/repository/com/jfoenix/jfoenix/8.0.8/jfoenix-8.0.8.jar"/>
+        <pathelement location="../../../.m2/repository/com/jfoenix/jfoenix/8.0.8/jfoenix-8.0.8.jar"/>
     </path>
-    <path id="voicenote.classpath">
+    <path id="JUnit 4.libraryclasspath">
+        <pathelement location="../../../.p2/pool/plugins/org.junit_4.12.0.v201504281640/junit.jar"/>
+        <pathelement location="../../../.p2/pool/plugins/org.hamcrest.core_1.3.0.v20180420-1519.jar"/>
+    </path>
+    <path id="voicenote-79fb6444d369864b8a109bdbdc2606ce4cffbae1.classpath">
         <pathelement location="target/classes"/>
         <path refid="Maven Dependencies.libraryclasspath"/>
+        <path refid="JUnit 4.libraryclasspath"/>
     </path>
-    <path id="run.Main (1).classpath">
-        <path refid="voicenote.classpath"/>
+    <path id="run.main.classpath">
+        <path refid="voicenote-79fb6444d369864b8a109bdbdc2606ce4cffbae1.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.runPythonTest.classpath">
+        <path refid="voicenote-79fb6444d369864b8a109bdbdc2606ce4cffbae1.classpath"/>
         <path refid="Maven Dependencies.libraryclasspath"/>
     </path>
     <target name="init">
@@ -41,13 +50,18 @@
         <javac debug="true" debuglevel="${debuglevel}" destdir="target/classes" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
             <include name="**/*.java"/>
-            <classpath refid="voicenote.classpath"/>
+            <classpath refid="voicenote-79fb6444d369864b8a109bdbdc2606ce4cffbae1.classpath"/>
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target name="Main (1)">
+    <target name="main">
         <java classname="application.Main" failonerror="true" fork="yes">
-            <classpath refid="run.Main (1).classpath"/>
+            <classpath refid="run.main.classpath"/>
+        </java>
+    </target>
+    <target name="runPythonTest">
+        <java classname="application.runPythonTest" failonerror="true" fork="yes">
+            <classpath refid="run.runPythonTest.classpath"/>
         </java>
     </target>
 </project>
