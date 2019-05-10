@@ -1,11 +1,15 @@
 package application;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.beans.EventHandler;
 import java.io.File;
@@ -17,9 +21,11 @@ import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
 
+
 public class SampleController {
 
 	// Event Listener on JFXButton.onAction
+	public static String text = "this text is static variable";
 	int cnt = 0;
 	@FXML
 	private JFXTextField filePath;
@@ -28,7 +34,7 @@ public class SampleController {
 	@FXML
 	private JFXButton btnStep1, btnStep2, btnStep3, btnStep4;
 	@FXML
-	private JFXButton btnOptimizasion, btnSaveAs, btnNoise, btnUploadFile;
+	private JFXButton btnOptimizasion, btnSaveAs, btnPreview, btnUploadFile;
 	
 	private void saveTextToFile(String content, File file) {
         try {
@@ -70,6 +76,27 @@ public class SampleController {
                 saveTextToFile(sampleText, file);
             }
 		});
+		
+		btnPreview.setOnAction((ActionEvent e)->{
+			try {
+	            Stage dialog = new Stage(StageStyle.UTILITY);
+	            dialog.initModality(Modality.WINDOW_MODAL);
+	            dialog.setTitle("Preview");
+
+	            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Preview.fxml"));
+
+	            Parent root1 = (Parent) fxmlLoader.load();
+	            
+	            Scene scene = new Scene(root1);
+	            dialog.setScene(scene);
+	            dialog.show();
+	            
+	            
+
+	        } catch (IOException e1) {
+	            e1.printStackTrace();
+	        }
+		});
     }
 
 	@FXML
@@ -89,9 +116,7 @@ public class SampleController {
 		// preview
 		if(event.getSource() == btnStep3) {
 			step3.toFront();
-			Stage dialog = new Stage();
-			dialog.initModality(Modality.APPLICATION_MODAL); 
-			dialog.showAndWait();
+			
 			
 		}
 		

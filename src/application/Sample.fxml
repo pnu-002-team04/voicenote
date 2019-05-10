@@ -20,7 +20,7 @@
             </Pane>
             <Pane fx:id="step3" layoutY="-4.0" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #0055B9;">
                <children>
-                  <JFXButton fx:id="btnEraseNoise" layoutX="170.0" layoutY="180.0" text="Erase Noise" />
+                  <JFXButton fx:id="btnPreview" layoutX="170.0" layoutY="180.0" text="Erase Noise" />
                </children>
             </Pane>
             <Pane fx:id="step4" layoutY="-4.0" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #F6F8FF;">
