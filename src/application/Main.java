@@ -8,8 +8,11 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
-	@Override
 	
+	public static String file_path;
+
+	
+	@Override
 	
 	
 	public void start(Stage primaryStage) {

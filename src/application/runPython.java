@@ -1,6 +1,7 @@
 package application;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -8,7 +9,7 @@ public class runPython implements Runnable {
 	private String pyPath;
 	private String pyCommand;
 	public runPython() {
-		this.pyPath = "test.py";
+		this.pyPath = null;
 		this.pyCommand = null; // fix current directory
 	}
 	public runPython(String pyPath) {
@@ -20,6 +21,14 @@ public class runPython implements Runnable {
 		this.pyPath = pyPath;
 		this.pyCommand = "python " + this.pyPath + " " + args; 
 	}
+	
+	// ¸íÁø
+	public runPython(String pyPath, String args, int flag) {
+		pyPath = "./speech_to_text.py";
+		this.pyPath = pyPath;
+		this.pyCommand = "python " + this.pyPath + " " + args; 
+	}
+	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub

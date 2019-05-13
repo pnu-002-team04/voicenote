@@ -7,7 +7,9 @@ from google.cloud import speech
 from google.cloud.speech import enums
 from google.cloud.speech import types
 from datetime import datetime
+import sys
 
+var1 = sys.argv[1]
 now = datetime.now()
 title = '%s-%s-%s Record File' % (now.year, now.month, now.day)
 class PDF(FPDF):
@@ -92,12 +94,12 @@ def transcribe_file(speech_file):
         f.write(result.alternatives[0].transcript)
         f.close()
 
-        # text to pdf
-        pdf = PDF()
-        pdf.set_title(title)
-        pdf.set_author('PNU-TEAM-04')
-        pdf.print_chapter(1, '', 'test.tmp')
-        pdf.output('output.pdf', 'F')
+        # # text to pdf
+        # pdf = PDF()
+        # pdf.set_title(title)
+        # pdf.set_author('PNU-TEAM-04')
+        # pdf.print_chapter(1, '', 'test.tmp')
+        # pdf.output('output.pdf', 'F')
 
         # text to doc
         document = Document()
@@ -110,7 +112,7 @@ if __name__ == '__main__':
     file_name = os.path.join(
         os.path.dirname(__file__),
         '.',
-        'example.wav')
+        var1)
     with io.open(file_name, 'rb') as audio_file:
         content = audio_file.read()
         audio = types.RecognitionAudio(content=content)
