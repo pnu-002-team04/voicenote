@@ -59,7 +59,6 @@ public class SampleController {
 			Main.file_path = aFilePath;
 			filePath.setText(aFilePath);
 			runPython rp = new runPython(aFilePath, Main.file_path, 0);
-			System.out.println(Main.file_path);
 
 			Thread rpThread = new Thread(rp);
 			rpThread.start();
