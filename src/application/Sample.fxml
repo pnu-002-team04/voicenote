@@ -20,7 +20,7 @@
             </Pane>
             <Pane fx:id="step3" layoutY="-4.0" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #0055B9;">
                <children>
-                  <JFXButton fx:id="btnPreview" layoutX="170.0" layoutY="180.0" text="Erase Noise" />
+                  <JFXButton fx:id="btnPreview" layoutX="170.0" layoutY="180.0" text="Preview" />
                </children>
             </Pane>
             <Pane fx:id="step4" layoutY="-4.0" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #F6F8FF;">
@@ -45,7 +45,7 @@
                </effect>
             </AnchorPane>
             <JFXButton fx:id="btnStep2" layoutX="-1.0" layoutY="133.0" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="250.0" text="Optimization" />
-            <JFXButton fx:id="btnStep3" layoutY="188.0" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="250.0" text="Noise" />
+            <JFXButton fx:id="btnStep3" layoutY="188.0" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="250.0" text="Preview" />
             <JFXButton fx:id="btnStep4" layoutY="243.0" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="250.0" text="Save" />
          </children>
          <effect>
