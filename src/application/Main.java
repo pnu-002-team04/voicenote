@@ -1,6 +1,7 @@
 package application;
 
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,7 +22,9 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			
-		    
+			primaryStage.getIcons().add(
+					   new Image(
+					      Main.class.getResourceAsStream( "icon.png" ))); 
 		        primaryStage.setTitle("VoiceNote");
 		        primaryStage.setScene(scene);
 		        primaryStage.show();
