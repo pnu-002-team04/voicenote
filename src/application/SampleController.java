@@ -82,10 +82,13 @@ public class SampleController {
 
 		btnPreview.setOnAction((ActionEvent e) -> {
 			try {
+				runPython rp = new runPython("./denoise/denoising.py", Main.file_path);
+				Thread rpThread = new Thread(rp);
+				rpThread.start();
+				
 				Stage dialog = new Stage(StageStyle.UTILITY);
 				dialog.initModality(Modality.WINDOW_MODAL);
 				dialog.setTitle("Preview");
-
 				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Preview.fxml"));
 
 				Parent root1 = (Parent) fxmlLoader.load();
