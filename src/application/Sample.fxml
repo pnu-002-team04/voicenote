@@ -2,9 +2,12 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <children>
@@ -13,39 +16,51 @@
             <DropShadow />
          </effect>
          <children>
-            <Pane fx:id="step2" layoutY="-4.0" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #ffefcd;">
-               <children>
-                  <JFXButton fx:id="btnOptimizasion" layoutX="150.0" layoutY="180.0" style="-fx-background-color: #dbd0c9;" text="Get Optimization" />
-               </children>
-            </Pane>
-            <Pane fx:id="step3" layoutY="-4.0" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #ffefcd;">
-               <children>
-                  <JFXButton fx:id="btnPreview" layoutX="170.0" layoutY="180.0" style="-fx-background-color: #dbd0c9;" text="Erase Noise" />
-               </children>
-            </Pane>
-            <Pane fx:id="step4" layoutY="-4.0" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #ffefcd;">
-               <children>
-                  <JFXButton fx:id="btnSaveAs" layoutX="170.0" layoutY="180.0" style="-fx-background-color: #dbd0c9;" text="Save as.." />
-               </children>
-            </Pane>
             <Pane fx:id="step1" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #ffefcd;">
                <children>
                   <JFXButton fx:id="btnUploadFile" layoutX="283.0" layoutY="182.0" style="-fx-background-color: #dbd0c9;" text="upload file" />
                   <JFXTextField fx:id="filePath" layoutX="63.0" layoutY="181.0" prefHeight="23.0" prefWidth="208.0" style="-fx-background-color: #ffffff;" unFocusColor="#4d4d4d00" />
                </children>
             </Pane>
+            <Pane fx:id="step2" layoutY="-4.0" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #ffefcd;">
+               <children>
+                  <JFXButton fx:id="btnOptimizasion" layoutX="150.0" layoutY="180.0" style="-fx-background-color: #dbd0c9;" text="erase noise" />
+               </children>
+            </Pane>
+            <Pane fx:id="step3" layoutY="-4.0" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #ffefcd;">
+               <children>
+                  <VBox layoutX="170.0" layoutY="180.0">
+                     <children>
+                        <HBox prefHeight="33.0" prefWidth="200.0">
+                           <children>
+                              <JFXTextField fx:id="summaryText" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                        <JFXButton fx:id="btnPreview" style="-fx-background-color: #dbd0c9;" text="preview" />
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <Pane fx:id="step4" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #ffefcd;">
+               <children>
+                  <JFXButton fx:id="btnSaveAs" layoutX="170.0" layoutY="180.0" style="-fx-background-color: #dbd0c9;" text="Save as.." />
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
       <AnchorPane layoutY="-1.0" prefHeight="430.0" prefWidth="250.0" style="-fx-background-color: #a78479;">
          <children>
-            <JFXButton fx:id="btnStep1" layoutY="78.0" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="250.0" ripplerFill="#ffa2a2" text="File Upload" textFill="#f0ded3" wrapText="true" />
             <AnchorPane prefHeight="430.0" prefWidth="39.0" style="-fx-background-color: #fff;">
                <effect>
                   <DropShadow />
                </effect>
             </AnchorPane>
-            <JFXButton fx:id="btnStep2" layoutX="-1.0" layoutY="133.0" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="250.0" ripplerFill="#ffa2a2" text="Optimization" textFill="#f0ded3" />
-            <JFXButton fx:id="btnStep3" layoutY="188.0" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="250.0" ripplerFill="#ffa2a2" text="Noise" textFill="#f0ded3" />
+            <JFXButton fx:id="btnStep1" layoutY="78.0" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="250.0" ripplerFill="#ffa2a2" text="File Upload" textFill="#f0ded3" wrapText="true" />
+            <JFXButton fx:id="btnStep2" layoutX="-1.0" layoutY="133.0" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="250.0" ripplerFill="#ffa2a2" text="Erase Noise" textFill="#f0ded3" />
+            <JFXButton fx:id="btnStep3" layoutY="188.0" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="250.0" ripplerFill="#ffa2a2" text="Preview" textFill="#f0ded3" />
             <JFXButton fx:id="btnStep4" layoutY="243.0" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="250.0" ripplerFill="#ffa2a2" text="Save" textFill="#f0ded3" />
          </children>
          <effect>

@@ -87,7 +87,7 @@ public class SampleController {
 				rpThread.start();
 
 				Main.denoise_file_path = "./Denoise_reconstruction.wav";
-						
+		
 				Stage dialog = new Stage(StageStyle.UTILITY);
 				dialog.initModality(Modality.WINDOW_MODAL);
 				dialog.setTitle("Preview");
@@ -103,6 +103,13 @@ public class SampleController {
 				e1.printStackTrace();
 			}
 		});
+
+		// erase noise
+		btnOptimizasion.setOnAction((ActionEvent e) -> {
+			runPython rp = new runPython("./denoise/denoising.py", Main.file_path);
+			Thread rpThread = new Thread(rp);
+			rpThread.start();
+		});
 	}
 
 	@FXML
@@ -114,7 +121,7 @@ public class SampleController {
 
 		}
 
-		// optimization
+		// erase noise
 		if (event.getSource() == btnStep2) {
 			step2.toFront();
 		}
