@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -21,6 +22,7 @@ import com.jfoenix.controls.JFXTextField;
 import application.Main;
 import application.runPython;
 import javafx.event.ActionEvent;
+
 public class SampleController {
 
 	// Event Listener on JFXButton.onAction
@@ -55,39 +57,52 @@ public class SampleController {
 			fileChooser.setTitle("Open Music File");
 			Stage dialog = new Stage();
 			File f = fileChooser.showOpenDialog(dialog);
+			
 			String aFilePath = f.getAbsolutePath();
 			Main.file_path = aFilePath;
 			filePath.setText(aFilePath);
-			runPython rp = new runPython(aFilePath, Main.file_path, 0);
-
-			Thread rpThread = new Thread(rp);
-			rpThread.start();
+			
+			
+			
 		});
 		btnSaveAs.setOnAction((ActionEvent e) -> {
-			FileChooser fileChooser = new FileChooser();
-
-			// Set extension filter for text files
-			// convert txt to pdf or docx what user choose
-			FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
-			fileChooser.getExtensionFilters().add(extFilter);
 			Stage dialog = new Stage();
 
-			// Show save file dialog
-			File file = fileChooser.showSaveDialog(dialog);
-			String sampleText = "soicem"; // need to change our text which converted from audio to text
-			if (file != null) {
-				saveTextToFile(sampleText, file);
-			}
+			DirectoryChooser directoryChooser = new DirectoryChooser();
+			File selectedDirectory = directoryChooser.showDialog(dialog);
+			String dirPath = selectedDirectory.getAbsolutePath();
+			runPython arp = new runPython("./speech_to_text2.py", SampleController.text, 0, dirPath);
+			
+			
+			Thread arpThread = new Thread(arp);
+			arpThread.start();
+			/*
+//			
+//			FileChooser fileChooser = new FileChooser();
+//
+//			// Set extension filter for text files
+//			// convert txt to pdf or docx what user choose
+//			FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+//			fileChooser.getExtensionFilters().add(extFilter);
+//			Stage dialog = new Stage();
+//
+//			// Show save file dialog
+//			File file = fileChooser.showSaveDialog(dialog);
+//			String sampleText = "soicem"; // need to change our text which converted from audio to text
+//			if (file != null) {
+//				saveTextToFile(sampleText, file);
+//			}
+			*/
+			
+			
+			
+			
 		});
 
 		btnPreview.setOnAction((ActionEvent e) -> {
 			try {
-				runPython rp = new runPython("./denoise/denoising.py", Main.file_path);
-				Thread rpThread = new Thread(rp);
-				rpThread.start();
-
-				Main.denoise_file_path = "./Denoise_reconstruction.wav";
-		
+				
+				
 				Stage dialog = new Stage(StageStyle.UTILITY);
 				dialog.initModality(Modality.WINDOW_MODAL);
 				dialog.setTitle("Preview");
@@ -128,12 +143,24 @@ public class SampleController {
 
 		// preview
 		if (event.getSource() == btnStep3) {
+			
+			// erase noise 실행이 안되서 일단은 주석으로 해놓음 (주석 부분이 erase noise 실행 제대로 되면, 주석 해제하면 됨)
+//			Main.denoise_file_path = "./Denoise_reconstruction.wav";
+//			runPython arp = new runPython("./speech_to_text.py", Main.denoise_file_path, 0);
+			
+			runPython arp = new runPython("./speech_to_text.py", Main.file_path, 0);
+			
+			
+			Thread arpThread = new Thread(arp);
+			arpThread.start();
+			
 			step3.toFront();
 
 		}
 
 		// save
 		if (event.getSource() == btnStep4) {
+			
 			step4.toFront();
 
 		}

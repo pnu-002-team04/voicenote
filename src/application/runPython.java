@@ -17,6 +17,7 @@ public class runPython implements Runnable {
 		this.pyCommand = "python " + this.pyPath; // fix current directory
 	}
 	
+	
 	public runPython(String pyPath, String args) {
 		this.pyPath = pyPath;
 		this.pyCommand = "python " + this.pyPath + " " + args; 
@@ -24,11 +25,14 @@ public class runPython implements Runnable {
 	
 	// ¸íÁø
 	public runPython(String pyPath, String args, int flag) {
-		pyPath = "./speech_to_text.py";
 		this.pyPath = pyPath;
 		this.pyCommand = "python " + this.pyPath + " " + args; 
 	}
 	
+	public runPython(String pyPath, String args, int flag, String args1) {
+		this.pyPath = pyPath;
+		this.pyCommand = "python " + this.pyPath + " " + "\"" + args + "\"" + " " + args1;
+	}
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -38,6 +42,7 @@ public class runPython implements Runnable {
 			System.out.println(this.pyCommand);
 			BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			while((s = in.readLine()) != null) {
+				SampleController.text = s;
 				System.out.println(s);
 			}
 		} catch(IOException ie) {
