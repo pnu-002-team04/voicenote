@@ -85,7 +85,9 @@ public class SampleController {
 				runPython rp = new runPython("./denoise/denoising.py", Main.file_path);
 				Thread rpThread = new Thread(rp);
 				rpThread.start();
-				
+
+				Main.denoise_file_path = "./Denoise_reconstruction.wav";
+						
 				Stage dialog = new Stage(StageStyle.UTILITY);
 				dialog.initModality(Modality.WINDOW_MODAL);
 				dialog.setTitle("Preview");

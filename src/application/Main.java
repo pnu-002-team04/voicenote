@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
 	
 	public static String file_path;
+	public static String denoise_file_path;
 
 	
 	@Override
