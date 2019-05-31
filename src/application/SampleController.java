@@ -102,6 +102,16 @@ public class SampleController {
 		btnPreview.setOnAction((ActionEvent e) -> {
 			try {
 				
+				// erase noise 실행이 안되서 일단은 주석으로 해놓음 (주석 부분이 erase noise 실행 제대로 되면, 주석 해제하면 됨)
+//				Main.denoise_file_path = "./Denoise_reconstruction.wav";
+//				runPython arp = new runPython("./speech_to_text.py", Main.denoise_file_path, 0);
+				
+				runPython arp = new runPython("./speech_to_text.py", Main.file_path, 0);
+				
+				
+				Thread arpThread = new Thread(arp);
+				arpThread.start();
+
 				
 				Stage dialog = new Stage(StageStyle.UTILITY);
 				dialog.initModality(Modality.WINDOW_MODAL);
@@ -144,16 +154,7 @@ public class SampleController {
 		// preview
 		if (event.getSource() == btnStep3) {
 			
-			// erase noise 실행이 안되서 일단은 주석으로 해놓음 (주석 부분이 erase noise 실행 제대로 되면, 주석 해제하면 됨)
-//			Main.denoise_file_path = "./Denoise_reconstruction.wav";
-//			runPython arp = new runPython("./speech_to_text.py", Main.denoise_file_path, 0);
-			
-			runPython arp = new runPython("./speech_to_text.py", Main.file_path, 0);
-			
-			
-			Thread arpThread = new Thread(arp);
-			arpThread.start();
-			
+						
 			step3.toFront();
 
 		}
