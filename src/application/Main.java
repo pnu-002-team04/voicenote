@@ -25,7 +25,7 @@ public class Main extends Application {
 			
 			primaryStage.getIcons().add(
 					   new Image(
-					      Main.class.getResourceAsStream( "icon.png" ))); 
+					      Main.class.getResourceAsStream( "icon3.png" ))); 
 		        primaryStage.setTitle("VoiceNote");
 		        primaryStage.setScene(scene);
 		        primaryStage.show();
