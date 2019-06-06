@@ -1,3 +1,8 @@
+# python -m pip install fpdf
+# python -m pip install python-docx
+# ref : https://pypi.org/project/google-cloud-speech/
+# python -m pip install google-cloud-speech
+
 import io
 import os
 from fpdf import FPDF

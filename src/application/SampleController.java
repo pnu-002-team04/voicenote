@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXTextField;
 import application.Main;
 import application.runPython;
@@ -28,6 +29,8 @@ public class SampleController {
 	// Event Listener on JFXButton.onAction
 	public static String text = "this text is static variable";
 	int cnt = 0;
+	@FXML
+	private JFXCheckBox isKorean;
 	@FXML
 	private JFXTextField filePath;
 	@FXML
@@ -61,9 +64,6 @@ public class SampleController {
 			String aFilePath = f.getAbsolutePath();
 			Main.file_path = aFilePath;
 			filePath.setText(aFilePath);
-			
-			
-			
 		});
 		btnSaveAs.setOnAction((ActionEvent e) -> {
 			Stage dialog = new Stage();
@@ -111,7 +111,8 @@ public class SampleController {
 				
 				Thread arpThread = new Thread(arp);
 				arpThread.start();
-
+				boolean isSelected = isKorean.isSelected();
+				System.out.println(isSelected);
 				
 				Stage dialog = new Stage(StageStyle.UTILITY);
 				dialog.initModality(Modality.WINDOW_MODAL);

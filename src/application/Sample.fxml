@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.effect.DropShadow?>
@@ -24,6 +25,7 @@
                      <children>
                         <HBox prefHeight="33.0" prefWidth="200.0">
                            <children>
+                              <JFXCheckBox fx:id="isKorean" />
                               <JFXTextField fx:id="summaryText" />
                            </children>
                            <opaqueInsets>
