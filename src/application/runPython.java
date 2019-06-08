@@ -41,9 +41,10 @@ public class runPython implements Runnable {
 			Process p = Runtime.getRuntime().exec(this.pyCommand);
 			System.out.println(this.pyCommand);
 			BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			SampleController.text = "";
 			while((s = in.readLine()) != null) {
-				SampleController.text = s;
-				System.out.println(s);
+				SampleController.text += s;
+				System.out.println(SampleController.text);
 			}
 		} catch(IOException ie) {
 			ie.printStackTrace();

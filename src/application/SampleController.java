@@ -32,7 +32,7 @@ public class SampleController {
 	@FXML
 	private JFXCheckBox isKorean;
 	@FXML
-	private JFXTextField filePath;
+	private JFXTextField filePath, summaryText;
 	@FXML
 	private Pane step1, step2, step3, step4;
 	@FXML
@@ -57,6 +57,7 @@ public class SampleController {
 	public void initialize() {
 		btnUploadFile.setOnAction((ActionEvent e) -> {
 			FileChooser fileChooser = new FileChooser();
+			fileChooser.setInitialDirectory(new File("./"));
 			fileChooser.setTitle("Open Music File");
 			Stage dialog = new Stage();
 			File f = fileChooser.showOpenDialog(dialog);
@@ -106,14 +107,21 @@ public class SampleController {
 //				Main.denoise_file_path = "./Denoise_reconstruction.wav";
 //				runPython arp = new runPython("./speech_to_text.py", Main.denoise_file_path, 0);
 				
-				runPython arp = new runPython("./speech_to_text.py", Main.file_path, 0);
-				
-				
+				/*runPython arp = new runPython("./speech_to_text.py", Main.file_path, 0);
 				Thread arpThread = new Thread(arp);
 				arpThread.start();
-				arpThread.join();
+				arpThread.join();*/
 				boolean isSelected = isKorean.isSelected();
+				String summaryN = summaryText.getText();
 				System.out.println(isSelected);
+				
+				// for summarization
+				if(summaryN != "") {
+					runPython summary_t = new runPython("./summaryText.py", "test.tmp" + " " + summaryN, 0);
+					Thread summaryThread = new Thread(summary_t);
+					summaryThread.start();
+					summaryThread.join();
+				}
 				
 				Stage dialog = new Stage(StageStyle.UTILITY);
 				dialog.initModality(Modality.WINDOW_MODAL);
