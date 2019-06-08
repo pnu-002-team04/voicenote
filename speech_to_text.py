@@ -3,6 +3,9 @@
 # ref : https://pypi.org/project/google-cloud-speech/
 # python -m pip install google-cloud-speech
 
+# python -m pip install SpeechRecognition
+
+
 import io
 import os
 from fpdf import FPDF
@@ -44,6 +47,23 @@ def transcribe_file(speech_file):
         f.write(result.alternatives[0].transcript)
         f.close()
 
+def speechToTextWithKey(filePath):
+    import sys
+    import os
+    import speech_recognition as sr
+    r = sr.Recognizer()
+    havard = sr.AudioFile(filePath)
+
+    f = open("test.tmp", 'w')
+
+    s = ""
+
+    with havard as source:
+        audio = r.record(source)
+        s += str(r.recognize_google(audio))
+    f.write(s)
+    print(s)
+
 
 if __name__ == '__main__':
     file_name = os.path.join(
@@ -54,6 +74,7 @@ if __name__ == '__main__':
         content = audio_file.read()
         audio = types.RecognitionAudio(content=content)
 
-    transcribe_file(file_name)
+    #transcribe_file(file_name) # should append API key
+    speechToTextWithKey(file_name)
 
 

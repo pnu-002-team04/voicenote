@@ -111,6 +111,7 @@ public class SampleController {
 				
 				Thread arpThread = new Thread(arp);
 				arpThread.start();
+				arpThread.join();
 				boolean isSelected = isKorean.isSelected();
 				System.out.println(isSelected);
 				
@@ -126,6 +127,9 @@ public class SampleController {
 				dialog.show();
 
 			} catch (IOException e1) {
+				e1.printStackTrace();
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		});
