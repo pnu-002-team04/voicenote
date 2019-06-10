@@ -4,13 +4,18 @@
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.MotionBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <children>
@@ -25,14 +30,12 @@
                      <children>
                         <HBox prefHeight="33.0" prefWidth="200.0">
                            <children>
-                              <JFXCheckBox fx:id="isKorean" />
-                              <JFXTextField fx:id="summaryText" />
+                              <JFXTextField fx:id="summaryText" style="-fx-background-color: #ffffff;" unFocusColor="#4d4d4d00" />
                            </children>
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
                         </HBox>
-                        <JFXButton fx:id="btnPreview" style="-fx-background-color: #dbd0c9;" text="preview" />
                      </children>
                   </VBox>
                   <ImageView fitHeight="99.0" fitWidth="151.0" layoutX="213.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
@@ -40,11 +43,35 @@
                         <Image url="@reviewicon.png" />
                      </image>
                   </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@yoyak.png" />
+                     </image>
+                  </ImageView>
+                  <JFXCheckBox fx:id="isKorean" layoutX="177.0" layoutY="143.0" text="KOR / ENG Check" textOverrun="CLIP">
+                     <font>
+                        <Font name="Corbel" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXButton fx:id="btnPreview" buttonType="RAISED" layoutX="208.0" layoutY="234.0" ripplerFill="#8cd3ff" style="-fx-background-color: #c1907a;" text="preview" textFill="WHITE">
+                     <font>
+                        <Font name="Corbel" size="15.0" />
+                     </font>
+                     <effect>
+                        <MotionBlur />
+                     </effect>
+                  </JFXButton>
                </children>
             </Pane>
             <Pane fx:id="step4" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #ffefcd;">
                <children>
-                  <JFXButton fx:id="btnSaveAs" layoutX="170.0" layoutY="180.0" style="-fx-background-color: #dbd0c9;" text="Save as.." />
+                  <JFXButton fx:id="btnSaveAs" buttonType="RAISED" layoutX="170.0" layoutY="180.0" ripplerFill="#8cd3ff" style="-fx-background-color: #c1907a;" text="Save as.." textFill="WHITE">
+                     <effect>
+                        <Glow />
+                     </effect>
+                     <font>
+                        <Font name="Corbel" size="15.0" />
+                     </font></JFXButton>
                   <ImageView fitHeight="130.0" fitWidth="143.0" layoutX="281.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@cat2.png" />
@@ -54,7 +81,13 @@
             </Pane>
             <Pane fx:id="step2" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #ffefcd;">
                <children>
-                  <JFXButton fx:id="btnOptimizasion" layoutX="150.0" layoutY="180.0" style="-fx-background-color: #dbd0c9;" text="erase noise" />
+                  <JFXButton fx:id="btnOptimizasion" buttonType="RAISED" layoutX="150.0" layoutY="180.0" ripplerFill="#8cd3ff" style="-fx-background-color: #c1907a;" text="erase noise" textFill="WHITE">
+                     <font>
+                        <Font name="Corbel" size="15.0" />
+                     </font>
+                     <effect>
+                        <Blend />
+                     </effect></JFXButton>
                   <ImageView fitHeight="99.0" fitWidth="142.0" layoutX="105.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@noiseicon.png" />
@@ -64,7 +97,13 @@
             </Pane>
             <Pane fx:id="step1" layoutY="-8.0" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #ffefcd;">
                <children>
-                  <JFXButton fx:id="btnUploadFile" layoutX="283.0" layoutY="182.0" style="-fx-background-color: #dbd0c9;" text="upload file" />
+                  <JFXButton fx:id="btnUploadFile" buttonType="RAISED" layoutX="283.0" layoutY="182.0" ripplerFill="#8cd3ff" style="-fx-background-color: #c1907a;" text="upload file" textFill="WHITE">
+                     <font>
+                        <Font name="Corbel" size="15.0" />
+                     </font>
+                     <effect>
+                        <Bloom />
+                     </effect></JFXButton>
                   <JFXTextField fx:id="filePath" layoutX="63.0" layoutY="181.0" prefHeight="23.0" prefWidth="208.0" style="-fx-background-color: #ffffff;" unFocusColor="#4d4d4d00" />
                   <ImageView fitHeight="99.0" fitWidth="129.0" layoutX="12.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
                      <image>
