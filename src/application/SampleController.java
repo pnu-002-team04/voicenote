@@ -13,8 +13,6 @@ import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXTextField;
@@ -22,7 +20,6 @@ import application.Main;
 import javafx.event.ActionEvent;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
 /*
