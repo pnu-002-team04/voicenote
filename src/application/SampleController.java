@@ -122,11 +122,10 @@ public class SampleController {
 				String summaryN = summaryText.getText();
 				System.out.println(isSelected);
 				if(isSelected) {
-					/*runPython arp = new runPython("./speech_to_text_ko.py", Main.file_path, 0);
+					runPython arp = new runPython("./speech_to_text_ko.py", Main.file_path, 0);
 					Thread arpThread = new Thread(arp);
 					arpThread.start();
-					arpThread.join();*/
-					// using file io
+					arpThread.join();
 				}
 				else { // english
 					runPython arp = new runPython("./speech_to_text.py", Main.file_path, 0);

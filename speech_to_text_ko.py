@@ -41,9 +41,9 @@ def run_quickstart():
     for result in response.results:
         aaaa = result.alternatives[0].transcript.encode('utf8')
         print(u'{}'.format(result.alternatives[0].transcript))
-        f = open("./test.tmp", 'w')
-        f.write(result.alternatives[0].transcript.encode('utf8'))
-        f.close()
+        #f = open("./test.tmp", 'w')
+        #f.write(result.alternatives[0].transcript.encode('utf8'))
+        #f.close()
     # [END speech_quickstart]
 
 
