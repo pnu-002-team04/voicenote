@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class runPython implements Runnable {
 	private String pyPath;
@@ -42,13 +43,11 @@ public class runPython implements Runnable {
 			System.out.println(this.pyCommand);
 			BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			SampleController.text = "";
+
 			while((s = in.readLine()) != null) {
 				SampleController.text += s;
-				System.out.println(SampleController.text);
-				if(s == "EXIT") {
-					
-				}
 			}
+			System.out.println(SampleController.text);
 		} catch(IOException ie) {
 			ie.printStackTrace();
 			

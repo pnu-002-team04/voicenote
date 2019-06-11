@@ -36,7 +36,7 @@ def transcribe_file(speech_file):
 
     operation = client.long_running_recognize(config, audio)
 
-    print('Waiting for operation to complete...')
+    #print('Waiting for operation to complete...')
     response = operation.result(timeout=90)
 
 
@@ -53,14 +53,14 @@ def speechToTextWithKey(filePath):
     r = sr.Recognizer()
     havard = sr.AudioFile(filePath)
 
-    f = open("test.tmp", 'w')
+    #f = open("test.tmp", 'w')
 
     s = ""
 
     with havard as source:
         audio = r.record(source)
         s += str(r.recognize_google(audio))
-    f.write(s)
+    #f.write(s)
     print(s)
 
 

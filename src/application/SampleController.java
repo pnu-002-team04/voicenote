@@ -121,16 +121,29 @@ public class SampleController {
 				boolean isSelected = isKorean.isSelected();
 				String summaryN = summaryText.getText();
 				System.out.println(isSelected);
-				
-				// for summarization
-				if(summaryN != "") {
-					runPython summary_t = new runPython("./summaryText.py", "test.tmp" + " " + summaryN, 0);
-					Thread summaryThread = new Thread(summary_t);
-					summaryThread.start();
-					summaryThread.join();
-					 
-					btnStep4.setDisable(false); 
+				if(isSelected) {
+					/*runPython arp = new runPython("./speech_to_text_ko.py", Main.file_path, 0);
+					Thread arpThread = new Thread(arp);
+					arpThread.start();
+					arpThread.join();*/
+					// using file io
 				}
+				else { // english
+					runPython arp = new runPython("./speech_to_text.py", Main.file_path, 0);
+					Thread arpThread = new Thread(arp);
+					arpThread.start();
+					arpThread.join();
+					
+					// for summarization
+					if(summaryN != "") {
+						runPython summary_t = new runPython("./summaryText.py", "test.tmp" + " " + summaryN, 0);
+						Thread summaryThread = new Thread(summary_t);
+						summaryThread.start();
+						summaryThread.join();
+						btnStep4.setDisable(false); 
+					}
+				}
+				
 				
 				Stage dialog = new Stage(StageStyle.UTILITY);
 				dialog.initModality(Modality.WINDOW_MODAL);
