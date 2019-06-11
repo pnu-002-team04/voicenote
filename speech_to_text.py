@@ -2,7 +2,6 @@
 # python -m pip install python-docx
 # ref : https://pypi.org/project/google-cloud-speech/
 # python -m pip install google-cloud-speech
-
 # python -m pip install SpeechRecognition
 
 
@@ -76,5 +75,5 @@ if __name__ == '__main__':
 
     #transcribe_file(file_name) # should append API key
     speechToTextWithKey(file_name)
-
+    print("EXIT") # trigger word
 

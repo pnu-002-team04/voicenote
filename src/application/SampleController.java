@@ -39,7 +39,6 @@ public class SampleController {
 	private JFXButton btnStep1, btnStep2, btnStep3, btnStep4;
 	@FXML
 	private JFXButton btnOptimizasion, btnSaveAs, btnPreview, btnUploadFile;
-
 	private void saveTextToFile(String content, File file) {
 		try {
 			PrintWriter writer;
@@ -55,16 +54,24 @@ public class SampleController {
 
 	@FXML
 	public void initialize() {
+		btnStep2.setDisable(true); 
+		btnStep3.setDisable(true); 
+		btnStep4.setDisable(true); 
+		
 		btnUploadFile.setOnAction((ActionEvent e) -> {
 			FileChooser fileChooser = new FileChooser();
 			fileChooser.setInitialDirectory(new File("./"));
 			fileChooser.setTitle("Open Music File");
 			Stage dialog = new Stage();
 			File f = fileChooser.showOpenDialog(dialog);
-			
-			String aFilePath = f.getAbsolutePath();
-			Main.file_path = aFilePath;
-			filePath.setText(aFilePath);
+			if(f != null) {
+				String aFilePath = f.getAbsolutePath();
+				Main.file_path = aFilePath;
+				filePath.setText(aFilePath);
+				
+				btnStep2.setDisable(false); 
+				
+			};
 		});
 		btnSaveAs.setOnAction((ActionEvent e) -> {
 			Stage dialog = new Stage();
@@ -121,6 +128,8 @@ public class SampleController {
 					Thread summaryThread = new Thread(summary_t);
 					summaryThread.start();
 					summaryThread.join();
+					 
+					btnStep4.setDisable(false); 
 				}
 				
 				Stage dialog = new Stage(StageStyle.UTILITY);
@@ -133,7 +142,6 @@ public class SampleController {
 				Scene scene = new Scene(root1);
 				dialog.setScene(scene);
 				dialog.show();
-
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			} catch (InterruptedException e1) {
@@ -144,9 +152,11 @@ public class SampleController {
 
 		// erase noise
 		btnOptimizasion.setOnAction((ActionEvent e) -> {
-			runPython rp = new runPython("./denoise/denoising.py", Main.file_path);
+			/*runPython rp = new runPython("./denoise/denoising.py", Main.file_path);
 			Thread rpThread = new Thread(rp);
-			rpThread.start();
+			rpThread.start();*/
+			//rpThread.join();
+			btnStep3.setDisable(false); 
 		});
 	}
 

@@ -45,6 +45,9 @@ public class runPython implements Runnable {
 			while((s = in.readLine()) != null) {
 				SampleController.text += s;
 				System.out.println(SampleController.text);
+				if(s == "EXIT") {
+					
+				}
 			}
 		} catch(IOException ie) {
 			ie.printStackTrace();
