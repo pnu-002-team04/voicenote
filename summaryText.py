@@ -24,3 +24,4 @@ with open("summarizedText", "w") as f:
         result +=  summary + ".  "
     f.write(result)
     print(result)
+print("EXIT") # trigger word

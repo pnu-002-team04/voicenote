@@ -13,7 +13,7 @@ public class PreviewController {
 	private JFXTextArea preivewTextArea;
 	
 	@FXML private void initialize() {
-		preivewTextArea.setText(SampleController.text);
+		preivewTextArea.setText(SampleController.text.replace("EXIT", ""));
 	}
 	
 	public void setText(String text) {

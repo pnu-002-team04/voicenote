@@ -53,14 +53,37 @@
                         <Font name="Corbel" size="15.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXButton fx:id="btnPreview" buttonType="RAISED" layoutX="208.0" layoutY="234.0" ripplerFill="#8cd3ff" style="-fx-background-color: #c1907a;" text="preview" textFill="WHITE">
-                     <font>
-                        <Font name="Corbel" size="15.0" />
-                     </font>
-                     <effect>
-                        <MotionBlur />
-                     </effect>
-                  </JFXButton>
+                  <HBox alignment="TOP_CENTER" layoutX="89.0" layoutY="223.0" prefHeight="28.0" prefWidth="320.0">
+                     <children>
+                        <JFXButton fx:id="btnMakeText" buttonType="RAISED" ripplerFill="#8cd3ff" style="-fx-background-color: #c1907a;" text="get text" textFill="WHITE">
+                           <font>
+                              <Font name="Corbel" size="15.0" />
+                           </font>
+                           <effect>
+                              <MotionBlur />
+                           </effect>
+                        </JFXButton>
+                        <JFXButton fx:id="btnSummarize" buttonType="RAISED" ripplerFill="#8cd3ff" style="-fx-background-color: #c1907a;" text="Summarization" textFill="WHITE">
+                           <font>
+                              <Font name="Corbel" size="15.0" />
+                           </font>
+                           <effect>
+                              <MotionBlur />
+                           </effect>
+                        </JFXButton>
+                        <JFXButton fx:id="btnPreview" buttonType="RAISED" ripplerFill="#8cd3ff" style="-fx-background-color: #c1907a;" text="preview" textFill="WHITE">
+                           <font>
+                              <Font name="Corbel" size="15.0" />
+                           </font>
+                           <effect>
+                              <MotionBlur />
+                           </effect>
+                        </JFXButton>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
                </children>
             </Pane>
             <Pane fx:id="step4" prefHeight="430.0" prefWidth="451.0" style="-fx-background-color: #ffefcd;">

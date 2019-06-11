@@ -93,5 +93,5 @@ if __name__ == '__main__':
     f.write(var1)
     f.close()
     transcribe_file()
-
+    print("EXIT") #trigger word
 
