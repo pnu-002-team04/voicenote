@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXSpinner;
 import com.jfoenix.controls.JFXTextField;
 import application.Main;
 import javafx.event.ActionEvent;
@@ -109,6 +110,8 @@ public class SampleController {
 	public JFXButton btnStep1, btnStep2, btnStep3, btnStep4;
 	@FXML
 	public JFXButton btnOptimizasion, btnSaveAs, btnPreview, btnUploadFile, btnMakeText, btnSummarize;
+	@FXML
+	private JFXSpinner textSpinner, summarySpinner;
 	public void showPreviewDialog() throws IOException {
 		Stage dialog = new Stage(StageStyle.UTILITY);
 		dialog.initModality(Modality.WINDOW_MODAL);
@@ -129,6 +132,8 @@ public class SampleController {
 		btnStep4.setDisable(true); 
 		btnPreview.setDisable(true);
 		btnSummarize.setDisable(true);
+		textSpinner.setVisible(false);
+		summarySpinner.setVisible(false);
 		btnUploadFile.setOnAction((ActionEvent e) -> {
 			FileChooser fileChooser = new FileChooser();
 			fileChooser.setInitialDirectory(new File("./"));
@@ -180,6 +185,7 @@ public class SampleController {
 
 		btnMakeText.setOnAction((ActionEvent e) -> {
 			boolean isSelected = isKorean.isSelected();
+			textSpinner.setVisible(true);
 			if(isSelected) {
 				RunPython arp = new RunPython("./speech_to_text_ko.py", Main.file_path, 1);
 				Thread arpThread = new Thread(arp);
@@ -202,7 +208,9 @@ public class SampleController {
 		});
 		
 		btnSummarize.setOnAction((ActionEvent e) -> {
+			
 			boolean isSelected = isKorean.isSelected();
+			summarySpinner.setVisible(true);
 			if(!isSelected) {
 				String summaryN = summaryText.getText();
 				if(summaryN != "") {
@@ -212,7 +220,7 @@ public class SampleController {
 				}
 			} else {
 				System.out.println(text);
-				btnPreview.setDisable(false);
+				btnPreview.setVisible(true);
 			}
 		});
 		btnPreview.setOnAction((ActionEvent e) -> {
@@ -322,10 +330,13 @@ public class SampleController {
 					if(s.contentEquals("EXIT")) {
 						if(this.moduleFlag == 1) { // korea
 							btnSummarize.setDisable(false);
+							textSpinner.setVisible(false);
 						} else if(this.moduleFlag == 2) { // english
 							btnSummarize.setDisable(false);
+							textSpinner.setVisible(false);
 						} else if(this.moduleFlag == 3) { // summarization
-							btnPreview.setDisable(false); 
+							btnPreview.setDisable(false);
+							summarySpinner.setVisible(false);
 						} else if(this.moduleFlag == 4) { // save as
 							
 						}

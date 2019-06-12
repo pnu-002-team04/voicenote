@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXSpinner?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.effect.Blend?>
@@ -79,6 +80,8 @@
                               <MotionBlur />
                            </effect>
                         </JFXButton>
+                        <JFXSpinner fx:id="textSpinner" />
+                        <JFXSpinner fx:id="summarySpinner" />
                      </children>
                      <opaqueInsets>
                         <Insets />
