@@ -48,5 +48,6 @@ def run_quickstart():
 
 
 if __name__ == '__main__':
-    run_quickstart()
+    #run_quickstart()
+    print("한글을 인식하여라")
     print("EXIT")

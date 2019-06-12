@@ -210,7 +210,10 @@ public class SampleController {
 					Thread summaryThread = new Thread(summary_t);
 					summaryThread.start(); 
 				}
-			} 
+			} else {
+				System.out.println(text);
+				btnPreview.setDisable(false);
+			}
 		});
 		btnPreview.setOnAction((ActionEvent e) -> {
 			Stage dialog = new Stage(StageStyle.UTILITY);
@@ -319,7 +322,6 @@ public class SampleController {
 					if(s.contentEquals("EXIT")) {
 						if(this.moduleFlag == 1) { // korea
 							btnSummarize.setDisable(false);
-							
 						} else if(this.moduleFlag == 2) { // english
 							btnSummarize.setDisable(false);
 						} else if(this.moduleFlag == 3) { // summarization

@@ -9,7 +9,8 @@ public class PreviewController {
 	private JFXTextArea preivewTextArea;
 	
 	@FXML private void initialize() {
-		preivewTextArea.setText(SampleController.text.replace("EXIT", ""));
+		SampleController.text = SampleController.text.replace("EXIT", "");
+		preivewTextArea.setText(SampleController.text);
 	}
 	
 	public void setText(String text) {
