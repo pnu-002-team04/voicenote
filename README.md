@@ -22,10 +22,10 @@ decision tree depth==1
 ## 사용한 음성 파일 
 [데이터보기](https://github.com/soicem/python2019/blob/master/NHIS_OPEN_GJ_2017.CSV)
 
-## 최종 발표자
+## 최종 발표자료 
 * [Presentation](https://docs.google.com/presentation/d/1_zWkqKBGItJbBh4vUGXpR_4CrbgFBYKDu9xWs3zxUyg/edit?usp=sharing) 
 
-## 사용 모듈 및 환
+## 사용 모듈 및 환경 
 
 번호 | 이름
 ---- | ---- 
