@@ -155,11 +155,17 @@ public class SampleController {
 			DirectoryChooser directoryChooser = new DirectoryChooser();
 			File selectedDirectory = directoryChooser.showDialog(dialog);
 			String dirPath = selectedDirectory.getAbsolutePath();
-			RunPython arp = new RunPython("./speech_to_text2.py", SampleController.text, 4, dirPath);
-			
-			
-			Thread arpThread = new Thread(arp);
-			arpThread.start();
+			if(isKorean.isSelected()) {
+				RunPython arp = new RunPython("./speech_to_text2_ko.py", SampleController.text, 4, dirPath);
+				Thread arpThread = new Thread(arp);
+				arpThread.start();
+			}
+			else {
+				RunPython arp = new RunPython("./speech_to_text2.py", SampleController.text, 4, dirPath);
+				Thread arpThread = new Thread(arp);
+				arpThread.start();
+			}
+		
 			/*
 //			
 //			FileChooser fileChooser = new FileChooser();
@@ -190,6 +196,20 @@ public class SampleController {
 				RunPython arp = new RunPython("./speech_to_text_ko.py", Main.file_path, 1);
 				Thread arpThread = new Thread(arp);
 				arpThread.start();
+
+				try {
+					textSpinner.setVisible(true);
+					arpThread.join();
+					
+
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				textSpinner.setVisible(false);
+				btnPreview.setVisible(true);
+				btnPreview.setDisable(false);
+				
 			}
 			else { // english
 				RunPython arp = new RunPython("./speech_to_text.py", Main.file_path, 2);

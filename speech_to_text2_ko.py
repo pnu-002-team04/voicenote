@@ -78,11 +78,11 @@ class PDF(FPDF):
 def transcribe_file():
 
         # # text to pdf
-        pdf = PDF()
-        pdf.set_title(title)
-        pdf.set_author('PNU-TEAM-04')
-        pdf.print_chapter(1, '', 'test.tmp')
-        pdf.output('output.pdf', 'F')
+        # pdf = PDF()
+        # pdf.set_title(title)
+        # pdf.set_author('PNU-TEAM-04')
+        # pdf.print_chapter(1, '', 'test.tmp')
+        # pdf.output('output.pdf', 'F')
 
         b = var1.decode('cp949')
         c = b.encode('utf-8')
@@ -91,7 +91,7 @@ def transcribe_file():
         document = Document()
         document.add_heading('%s-%s-%s Record File' % (now.year, now.month, now.day))
         document.add_paragraph(b)
-        document.save('output.docx')
+        document.save('out_ko.docx')
 
 if __name__ == '__main__':
 
