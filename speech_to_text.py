@@ -3,7 +3,8 @@
 # ref : https://pypi.org/project/google-cloud-speech/
 # python -m pip install google-cloud-speech
 # python -m pip install SpeechRecognition
-
+# python -m pip install pydub
+# ffmpeg download and register system path
 
 import io
 import os
@@ -36,7 +37,7 @@ def transcribe_file(speech_file):
 
     operation = client.long_running_recognize(config, audio)
 
-    #print('Waiting for operation to complete...')
+    print('Waiting for operation to complete...')
     response = operation.result(timeout=90)
 
 
@@ -59,20 +60,55 @@ def speechToTextWithKey(filePath):
 
     with havard as source:
         audio = r.record(source)
-        s += str(r.recognize_google(audio))
+        t = str(r.recognize_google(audio))
+        s += t
+        
     #f.write(s)
     print(s)
 
+def convertM4aToWav(filepath):
+    import os
+    import argparse
+    from pydub import AudioSegment
+    import sys
+
+    formats_to_convert = ['.m4a']
+    #filepath = dirpath + '/' + filename
+    #filepath = var1
+    (path, file_extension) = os.path.splitext(filepath)
+
+    base = os.path.basename(filepath)
+    name = os.path.splitext(base)[0]
+    dirPath = path.replace(name, '')
+    file_extension_final = file_extension.replace('.', '')
+    if file_extension_final == "wav":
+        return filepath
+        
+    try:
+        track = AudioSegment.from_file(filepath,
+                file_extension_final)
+        wav_path = path + ".wav"
+        print('CONVERTING: ' + str(filepath))
+        file_handle = track.export(wav_path, format='wav')
+        #os.remove(filepath)
+        print(wav_path)
+        return wav_path
+    except:
+        print("ERROR CONVERTING " + str(filepath))
+
 
 if __name__ == '__main__':
+    print(var1)
     file_name = os.path.join(
         os.path.dirname(__file__),
         '.',
         var1)
+    print(file_name)
+    file_name = convertM4aToWav(file_name)
     with io.open(file_name, 'rb') as audio_file:
         content = audio_file.read()
         audio = types.RecognitionAudio(content=content)
-
+    
     #transcribe_file(file_name) # should append API key
     speechToTextWithKey(file_name)
     print("EXIT") # trigger word
