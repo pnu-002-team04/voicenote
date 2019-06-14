@@ -40,14 +40,19 @@ def run_quickstart():
 
     for result in response.results:
         aaaa = result.alternatives[0].transcript.encode('utf8')
-        print(u'{}'.format(result.alternatives[0].transcript))
-        #f = open("./test.tmp", 'w')
-        #f.write(result.alternatives[0].transcript.encode('utf8'))
-        #f.close()
+        bbbb = u'{}'.format(result.alternatives[0].transcript)
+        cccc =bbbb.encode('cp949')
+        print(cccc)
+
+        print(bbbb)
+        print(cccc)
+
+        f = open("./test.tmp", 'w')
+        f.write(aaaa)
+        f.close()
     # [END speech_quickstart]
 
 
 if __name__ == '__main__':
-    #run_quickstart()
-    print("한글을 인식하여라")
+    run_quickstart()
     print("EXIT")

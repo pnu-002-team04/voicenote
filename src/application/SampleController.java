@@ -45,7 +45,7 @@ class RunPython implements Runnable {
 		this.pyCommand = "python " + this.pyPath + " " + args; 
 	}
 	
-	// ¸íÁø
+	// ëª…ì§„
 	public RunPython(String pyPath, String args, int flag) {
 		this.pyPath = pyPath;
 		this.pyCommand = "python " + this.pyPath + " " + args; 
@@ -190,13 +190,6 @@ public class SampleController {
 				RunPython arp = new RunPython("./speech_to_text_ko.py", Main.file_path, 1);
 				Thread arpThread = new Thread(arp);
 				arpThread.start();
-				/*try {
-					arpThread.join();
-					btnPreview.setDisable(false);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}*/
 			}
 			else { // english
 				RunPython arp = new RunPython("./speech_to_text.py", Main.file_path, 2);
@@ -219,7 +212,12 @@ public class SampleController {
 					summaryThread.start(); 
 				}
 			} else {
-				System.out.println(text);
+				String summaryN = summaryText.getText();
+				if(summaryN != "") {
+					RunPython summary_t = new RunPython("./summaryText.py", "test.tmp" + " " + summaryN, 3);
+					Thread summaryThread = new Thread(summary_t);
+					summaryThread.start(); 
+				}
 				btnPreview.setVisible(true);
 			}
 		});
@@ -304,7 +302,7 @@ public class SampleController {
 			this.pyCommand = "python " + this.pyPath + " " + args; 
 		}
 		
-		// ¸íÁø
+		// ëª…ì§„
 		public RunPython(String pyPath, String args, int flag) {
 			this.pyPath = pyPath;
 			this.pyCommand = "python " + this.pyPath + " " + args; 
