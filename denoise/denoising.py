@@ -18,7 +18,7 @@ def data_read(path, mode):
         data, sr = librosa.load(path, sr=None)
 
     return data, sr
-
+print (args.path)
 mix_data, mix_sr = data_read(args.path, "rb")
 
 fft_size = 1024
@@ -46,8 +46,9 @@ F = F_gain * avp.stft(mix_data,fft_size,step_size)
 print("shape of F_out:",F.shape)
 T = avp.istft(F,fft_size,step_size)
 
-Tint = T/np.max(T)*32767 * 0.4
+Tint = T/np.max(T)*32767 * 0.1
 wavfile.write("Denoise_reconstruction.wav",mix_sr,Tint.astype('int16'))
+print ("EXIT")
 
 
 

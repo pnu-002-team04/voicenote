@@ -264,11 +264,11 @@ public class SampleController {
 
 		// erase noise
 		btnOptimizasion.setOnAction((ActionEvent e) -> {
-			/*runPython rp = new runPython("./denoise/denoising.py", Main.file_path);
+			RunPython rp = new RunPython("./denoise/denoising.py", Main.file_path, 5);
 			Thread rpThread = new Thread(rp);
-			rpThread.start();*/
-			//rpThread.join();
-			btnStep3.setDisable(false); 
+			rpThread.start();
+			
+			//btnStep3.setDisable(false); 
 		});
 	}
 
@@ -304,7 +304,7 @@ public class SampleController {
 	class RunPython implements Runnable {
 		private String pyPath;
 		private String pyCommand;
-		private int moduleFlag; // kor : 1 / english : 2 / summary : 3 / saveas : 4
+		private int moduleFlag; // kor : 1 / english : 2 / summary : 3 / saveas : 4 / noise : 5
 		
 		SampleController sp = new SampleController();
 		public RunPython() {
@@ -357,6 +357,8 @@ public class SampleController {
 							summarySpinner.setVisible(false);
 						} else if(this.moduleFlag == 4) { // save as
 							
+						} else if(this.moduleFlag == 5){
+							btnStep3.setDisable(false);
 						}
 					}
 					SampleController.text += s;
