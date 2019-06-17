@@ -1,3 +1,19 @@
+  # VoiceNote - 소프트웨어응용설계 팀프로젝트 (월요일 분반 4조)
+
+학과 | 학번 | 성명
+---- | ---- | ---- 
+정보컴퓨터공학 |201624642 |김남규
+
+
+## 동기 및 목적
+ 
+ 
+ 
+## 개요
+
+ 
+## 내용
+
 ﻿VoiceNote(이하 VN)는 사용자가 수업을 듣고 있는 강의를 녹음한 음성 파일을 텍스트로 변환 후 DOCX와 PDF 문서 양식으로 저장해주는 프로그램입니다.
 
 —————————————————Program Configulation————————————
@@ -36,33 +52,8 @@
 —————————————————————————————————————————
 
 
- 
- # VoiceNote - 소프트웨어응용설계 팀프로젝트 (월요일 분반 4조)
-
-학과 | 학번 | 성명
----- | ---- | ---- 
-정보컴퓨터공학 |201624642 |김남규
-
-
-## 동기 및 목적
- 
- 
- 
-## 개요
-
- 
-## 내용
-```
-decision tree depth==1
-```
-![](https://github.com/soicem/python2019/blob/master/res/max_depth1.png)
-
-
-## 사용한 음성 파일 
-[데이터보기](https://github.com/soicem/python2019/blob/master/NHIS_OPEN_GJ_2017.CSV)
-
 ## 발표자료 
-* [4조 최종발표자료](https://docs.google.com/presentation/d/1_zWkqKBGItJbBh4vUGXpR_4CrbgFBYKDu9xWs3zxUyg/edit?usp=sharing) 
+* [4조 최종발표자료](https://docs.google.com/presentation/d/1wOIi1PN_HzzbrFe8FhQwdOcHBAo5RbS4MbjSNuGLmwg/edit?usp=sharing) 
 
 ## 사용 모듈 및 환경 
 
